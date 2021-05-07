@@ -1,0 +1,15 @@
+{
+  users {
+    ...UserFields
+  }
+}
+
+fragment UserFields on User {
+  id
+  email
+  encryptedPassword
+  firstname
+  lastname
+  createdAt
+  updatedAt
+}

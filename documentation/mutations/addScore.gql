@@ -1,0 +1,3 @@
+mutation {
+  addScore(value: 10, userID: 2)
+}

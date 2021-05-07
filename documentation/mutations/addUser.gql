@@ -1,0 +1,3 @@
+mutation {
+  addUser(firstname: "Golden", lastname: "973", email: "fabian973@test.com", password: "12345")
+}

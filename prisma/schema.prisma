@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://postgres:root@localhost:5432/cross-sourcerer?schema=public"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                Int      @id @default(autoincrement())
+  email             String   @unique
+  encryptedPassword String
+  firstname         String
+  lastname          String
+  createdAt         DateTime
+  updatedAt         DateTime
+  scores            Scores[]
+}
+
+model Scores {
+  id        Int     @id @default(autoincrement())
+  score     Int
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  createdAt DateTime
+  updatedAt DateTime
+}

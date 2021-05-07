@@ -1,0 +1,3 @@
+mutation {
+  deleteScores(userId: 1)
+}

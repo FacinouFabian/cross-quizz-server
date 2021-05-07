@@ -1,0 +1,13 @@
+{
+  scores {
+    id
+    score
+    user {
+      ...UserFields
+    }
+  }
+}
+
+fragment UserFields on User {
+  id
+}

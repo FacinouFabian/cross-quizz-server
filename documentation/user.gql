@@ -1,0 +1,6 @@
+{
+  user(email: "fabianfacinou@gmail.com") {
+    firstname
+    lastname
+  }
+}
