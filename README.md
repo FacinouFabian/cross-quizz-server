@@ -10,3 +10,7 @@ PORT=<API_PORT>
 ```bash
 yarn build:db
 ```
+
+## Documentation
+
+For graphql requests documentation see `documentation` folder
