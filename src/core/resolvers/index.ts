@@ -7,6 +7,7 @@ import updateUser from './mutations/updateUser'
 import addScore from './mutations/addScore'
 import deleteScores from './mutations/deleteScore'
 
+// !FIXME La c'est  cool de faire comme ça est de séparer par model
 const resolvers = {
   Query: {
     ...userQueries,

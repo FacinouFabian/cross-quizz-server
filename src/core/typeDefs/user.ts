@@ -1,3 +1,4 @@
+// !FIXME ajoute gql pour la coloration syntaxique ;)
 const user = `
 type User {
     id: Int

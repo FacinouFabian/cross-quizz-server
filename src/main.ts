@@ -1,4 +1,4 @@
-import 'reflect-metadata'
+import 'reflect-metadata' // no need si tu utilise pas typeorm
 import dotenv from 'dotenv'
 import { ApolloServer } from 'apollo-server'
 
@@ -17,7 +17,7 @@ const main = async (): Promise<void> => {
 
     const server = new ApolloServer({ typeDefs, resolvers })
 
-    const port = process.env.PORT as string
+    const port = process.env.PORT as string // check si ça existe sinon un port par défaut
 
     server.listen(parseInt(port, 10)).then(({ url }) => {
       console.log(`🚀  Server ready at ${url}`)

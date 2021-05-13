@@ -1,6 +1,6 @@
 import { PrismaClient, Scores } from '@prisma/client'
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient() // A ne jamais faire hors fonction
 
 export const createScore = async (data: ScoreData): Promise<Scores | Error> => {
   const { value, userId } = data
@@ -15,6 +15,7 @@ export const createScore = async (data: ScoreData): Promise<Scores | Error> => {
           updatedAt: new Date(),
         },
       })
+      // !FIXME plutot que then/catch, tu peux faire sans avec try/catch pour resolve/reject vu que tu fais await
       .then((score) => resolve(score))
       .catch((error) => reject(error))
     await prisma.$disconnect()
@@ -24,6 +25,8 @@ export const createScore = async (data: ScoreData): Promise<Scores | Error> => {
 export const getAllScores = async () => {
   const scores = await prisma.scores.findMany()
   await prisma.$disconnect()
+  // !FIXME plutôt qu'ajouter disconnect à chaque fois tu peux faire en sorte sur apollo en fin de requete qu'il disconnect
+  // comme ça tu le fais que une fois
 
   return scores
 }
@@ -48,6 +51,7 @@ export const getScore = async (userId: number) => {
 
 export const deleteScores = async (userId: number): Promise<String | Error> => {
   return new Promise(async (resolve, reject) => {
+    // !FIXME same pour then/catch
     await prisma.scores
       .deleteMany({
         where: { userId },
