@@ -3,13 +3,14 @@ import { PrismaClient, Scores } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export const createScore = async (data: ScoreData): Promise<Scores | Error> => {
-  const { value, userId } = data
+  const { value, userId, time } = data
 
   return new Promise(async (resolve, reject) => {
     await prisma.scores
       .create({
         data: {
           score: value,
+          time,
           user: { connect: { id: userId } },
           createdAt: new Date(),
           updatedAt: new Date(),

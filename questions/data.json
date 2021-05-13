@@ -1,7 +1,0 @@
-[
-  {
-    "sentence": "How are you ?",
-    "answers": ["fine", "sad"],
-    "expected": ["fine"]
-  }
-]

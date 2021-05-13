@@ -6,8 +6,6 @@ import { prelude, mlog } from './core/libs/utils'
 import typeDefs from './core/typeDefs'
 import resolvers from './core/resolvers'
 
-import { createScore } from './core/libs/scores'
-
 const main = async (): Promise<void> => {
   try {
     // Every beautiful story have a begining...

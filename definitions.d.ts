@@ -20,6 +20,7 @@ type User = {
 
 type ScoreData = {
   value: number
+  time: string
   userId: number
 }
 
@@ -28,4 +29,10 @@ type UserData = {
   password: string
   firstname: string
   lastname: string
+}
+
+type Question = {
+  sentence: string
+  answers: string[]
+  expected: number[]
 }

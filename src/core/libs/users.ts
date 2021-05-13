@@ -32,13 +32,24 @@ export const getManyUsers = async (id: number) => {
   return users
 }
 
-export const getUser = async (data: Partial<User>) => {
-  const user = await prisma.user.findFirst({
-    where: { ...data },
+export const getUser = async (data: Partial<User>): Promise<User | Error> => {
+  return new Promise(async (resolve, reject) => {
+    await prisma.user
+      .findFirst({
+        where: { ...data },
+      })
+      .then((user) => {
+        if (user != null) {
+          resolve(user)
+        } else {
+          reject(new Error("Cet utilsateur n'existe pas."))
+        }
+      })
+      .catch((error) => {
+        reject(error)
+      })
+    await prisma.$disconnect()
   })
-  await prisma.$disconnect()
-
-  return user
 }
 
 export const updateUser = async (id: number, data: Partial<User>): Promise<User | Error> => {

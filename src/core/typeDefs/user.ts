@@ -5,8 +5,8 @@ type User {
     encryptedPassword: String
     firstname: String
     lastname: String
-    createdAt: String
-    updatedAt: String
+    createdAt: Date
+    updatedAt: Date
 }
 `
 

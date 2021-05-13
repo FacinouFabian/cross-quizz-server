@@ -12,21 +12,11 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "Question" (
-    "questionID" SERIAL NOT NULL,
-    "sentence" TEXT NOT NULL,
-    "answers" TEXT[],
-    "expected" TEXT[],
-    "createdAt" TIMESTAMP(3) NOT NULL,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-
-    PRIMARY KEY ("questionID")
-);
-
--- CreateTable
-CREATE TABLE "Quizz" (
+CREATE TABLE "Scores" (
     "id" SERIAL NOT NULL,
-    "isComplete" BOOLEAN NOT NULL DEFAULT false,
+    "score" INTEGER NOT NULL,
+    "time" TEXT NOT NULL,
+    "userId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -37,4 +27,4 @@ CREATE TABLE "Quizz" (
 CREATE UNIQUE INDEX "User.email_unique" ON "User"("email");
 
 -- AddForeignKey
-ALTER TABLE "Question" ADD FOREIGN KEY ("questionID") REFERENCES "Quizz"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Scores" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

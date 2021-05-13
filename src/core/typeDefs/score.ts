@@ -2,9 +2,10 @@ const score = `
 type Score {
     id: Int
     score: Int
+    time: String
     user: User
-    createdAt: String
-    updatedAt: String
+    createdAt: Date
+    updatedAt: Date
 }
 `
 
