@@ -1,6 +1,6 @@
 import 'reflect-metadata'
 import dotenv from 'dotenv'
-import { ApolloServer } from 'apollo-server'
+import { ApolloServer, makeExecutableSchema } from 'apollo-server'
 
 import { prelude, mlog } from './core/libs/utils'
 import typeDefs from './core/typeDefs'
@@ -13,7 +13,12 @@ const main = async (): Promise<void> => {
 
     dotenv.config()
 
-    const server = new ApolloServer({ typeDefs, resolvers })
+    const schema = makeExecutableSchema({
+      typeDefs,
+      resolvers,
+    })
+
+    const server = new ApolloServer({ schema })
 
     const port = process.env.PORT
 
