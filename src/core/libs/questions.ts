@@ -1,4 +1,4 @@
-import data from '../../../questions/data'
+import data from '../utils/data'
 
 const prepareQuizz = (nb: number): Question[] => {
   const shuffled = data.sort(() => {
