@@ -6,7 +6,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
-      - DATABASE_URL='postgres://postgres:root@localhost:5432/cross-quizz?schema=public'
+      - DATABASE_URL='postgres://jhfwtzulslufrv:6d937d168784c7f6fa85150b5e9b909178b028ccf818eb10282a680629540f94@ec2-35-174-35-242.compute-1.amazonaws.com:5432/d4ufrn5v808l53'
       - ENVIRONMENT=PRODUCTION
     volumes:
       - postgres:/var/lib/postgresql/data

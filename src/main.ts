@@ -15,9 +15,9 @@ const main = async (): Promise<void> => {
 
     const server = new ApolloServer({ typeDefs, resolvers })
 
-    const port = process.env.PORT as string
+    const port = process.env.PORT
 
-    server.listen(parseInt(port, 10)).then(({ url }) => {
+    server.listen(port ? parseInt(port, 10) : 5000).then(({ url }) => {
       console.log(`🚀  Server ready at ${url}`)
     })
   } catch (err) {
